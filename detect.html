@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="googlebot" content="noarchive">
+    <link rel="stylesheet" href="assets/css/common.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/fonts.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/print.css" type="text/css" media="print">
+    <link type="application/atom+xml" rel="alternate" href="feed.xml" title="Bromite - News">
+    <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Bromite fingerprinting mitigations test | Bromite - take back your browser</title>
+<meta name="generator" content="Jekyll v3.9.0">
+<meta property="og:title" content="Bromite fingerprinting mitigations test">
+<meta name="author" content="csagan5">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Some anti-fingerprinting mitigations tests for Bromite">
+<meta property="og:description" content="Some anti-fingerprinting mitigations tests for Bromite">
+<link rel="canonical" href="detect-1.html">
+<meta property="og:url" content="https://www.bromite.org/detect.html">
+<meta property="og:site_name" content="Bromite - take back your browser">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Bromite fingerprinting mitigations test">
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"csagan5"},"headline":"Bromite fingerprinting mitigations test","description":"Some anti-fingerprinting mitigations tests for Bromite","url":"https://www.bromite.org/detect.html","@type":"WebPage","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.bromite.org/android-icon-192x192.png"},"name":"csagan5"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+
+    <script src="fp/sha1.js"></script>
+    <script src="fp/identicon.js"></script>
+    <script src="fp/canvas.js"></script>
+    <script src="fp/client_rects.js"></script>
+    <script src="fp/audio.js"></script>
+    <script src="fp/sensors.js"></script>
+    <script src="fp/webgl.js"></script>
+    <script src="fp/webrtc.js"></script>
+    <script src="fp/detect.js"></script>
+
+
+    <link rel="canonical" href="index.htm">
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Bromite fingerprinting mitigations test</h1>
+          <h2>Some anti-fingerprinting mitigations tests for Bromite</h2>
+          <p>[<a href="index.htm">Home</a>]&nbsp;&nbsp;[<a href="bromite/bromite.html">Github project</a>]</p>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          
+          <a href="bromite/bromite.html" id="view-on-github" class="button"><span>View on GitHub</span></a>
+          <a href="bromite/bromite/discussions.html" id="discuss-on-github" class="button"><span>Discuss on GitHub</span></a>
+        </section>
+        <hr>
+        <section id="main_content">
+          <p>This page helps identifying if common fingerprinting techniques are effective with your browser; no information is stored on any server at the end of the fingerprinting test and you will be offered to download the results as JSON.</p>
+
+<p><input id="startButton" type="button" onclick="ACTION()" value="Start test"></p>
+
+<p id="message"></p>
+<p>Fingerprints found: <span id="counter" style="text-weight:bold">0</span>/9</p>
+<progress id="progress" max="100"></progress>
+<p><a id="downloadButton" href="#" style="visibility: hidden">Download this data as JSON</a></p>
+
+<h1 id="general">General</h1>
+
+<p>Navigator platform is: <span class="info" id="navigatorPlatform"></span></p>
+
+<p>Timezone is: [<span class="info" id="timezone1"></span>&amp;‌para;<span class="info" id="timezone2"></span>]</p>
+
+<p>User agent is: <span class="info" id="userAgent"></span></p>
+
+<p>Plugins are: <span class="info" id="plugins"></span></p>
+
+<p>Your combined unique fingerprint and identicon:</p>
+
+<p><span id="cumulativeFp" class="fingerprint"></span></p>
+<p><img id="identicon"></p>
+
+<h1 id="clientrects">ClientRects</h1>
+<p>getClientRects fingerprints</p>
+<p>String 1: <span class="fingerprint" id="clientRectsFp1"></span></p>
+<p>String 2: <span class="fingerprint" id="clientRectsFp2"></span></p>
+<p>String 3: <span class="fingerprint" id="clientRectsFp3"></span></p>
+
+<iframe style="width: 100%; height: 230px; border: 2px solid navy" id="rects-iframe" sandbox="allow-same-origin" src="fp/rects_iframe.html" scrolling="no">iFrame Disabled</iframe>
+
+<iframe id="sub_rtc" sandbox="allow-same-origin"></iframe>
+
+<h1 id="webgl">WebGL</h1>
+<p>glVersion: <span class="info" id="glVersion"></span></p>
+<p>glRenderer: <span class="info" id="glRenderer"></span></p>
+<p>glVendor: <span class="info" id="glVendor"></span></p>
+
+<p>glDebugRenderer: <span class="info" id="glDebugRenderer"></span></p>
+<p>glDebugVendor: <span class="info" id="glDebugVendor"></span></p>
+
+<h1 id="webrtc">WebRTC</h1>
+
+<div id="webrtc_data"></div>
+
+<h1 id="canvas">Canvas</h1>
+<p>canvas fingerprint: <span class="fingerprint" id="canvasFpHash"></span></p>
+<p><img alt="generated canvas image" id="canvasImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></p>
+
+<h1 id="webgl-readpixels">WebGL readPixels</h1>
+<p>webGL readPixels fingerprint: <span class="fingerprint" id="webGLFpHash"></span></p>
+<div id="webGLImage"></div>
+
+<h1 id="audio">Audio</h1>
+<p>cc_output[:30] hash: <span class="fingerprint" id="cc_output"></span></p>
+<p>hybrid_output[:30] hash: <span class="fingerprint" id="hybrid_output"></span></p>
+<p>pxi_full_buffer_hash: <span class="fingerprint" id="pxi_full_buffer_hash"></span></p>
+<p>pxi_checksum: <span class="fingerprint" id="pxi_checksum"></span></p>
+<p>nt_vc_output: <pre id="nt_vc_output"></pre>
+
+<h1 id="sensors">Sensors</h1>
+
+<p><strong>NOTE:</strong> this information is not used for the fingerprinting test</p>
+
+<h2 id="devicemotion">DeviceMotion</h2>
+<p>Linear acceleration (excl. gravity): <pre class="fixed_pre" id="moDeviceMotionAccel">N.A.</pre>
+<p>Acceleration (including gravity): <pre class="fixed_pre" id="moDeviceMotionAccelGrav">N.A.</pre>
+<p>Rotation rate: <pre class="fixed_pre" id="moDeviceMotionRotation">N.A.</pre>
+<p>Interval (ms): <pre class="fixed_pre" id="moDeviceMotionInterval">N.A.</pre>
+
+<h2 id="gravitysensor">GravitySensor</h2>
+<p>Acceleration (including gravity): <pre class="fixed_pre" id="moAccelGrav">N.A.</pre>
+
+<h2 id="linearaccelerationsensor">LinearAccelerationSensor</h2>
+<p>Linear acceleration (excluding gravity): <pre class="fixed_pre" id="moAccel">N.A.</pre>
+<p>Interval (ms): <pre class="fixed_pre" id="moGenericSensorInterval">N.A.</pre>
+
+<h2 id="gyroscope">Gyroscope</h2>
+
+<p>Rotation rate: <pre class="fixed_pre" id="moGenericSensorRotation">N.A.</pre>
+
+<h2 id="magnetometer">Magnetometer</h2>
+<p>Magnetometer reading: <pre class="fixed_pre" id="moMagneto">N.A.</pre>
+
+
+        </section>
+
+        <footer style="text-align: center">
+        
+           [<a href="index.htm">Home</a>]&nbsp;&nbsp;[<a href="bromite/bromite.html">Github project</a>]&nbsp;&nbsp;[<a href="privacy.html">Privacy Policy</a>]
+        </footer>
+
+      </div>
+    </div>
+
+  </body>
+</html>
